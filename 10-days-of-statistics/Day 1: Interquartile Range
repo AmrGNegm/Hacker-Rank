@@ -1,0 +1,42 @@
+# Day 1: Interquartile Range
+4
+# The interquartile range of an array is the difference between its first (Q1) and third (Q3) quartiles (i.e., Q3-Q1 ).
+
+#Given an array, X, n of  integers and an array, F, representing the respective frequencies of X's elements, construct a data set, S, where each Xofi occurs at fofj frequency.
+#Then calculate and print S's interquartile range, rounded to a scale of 1 decimal place (i.e., 12.3 format).
+
+#Tip: Be careful to not use integer division when averaging the middle two elements for a data set with an even number of elements,
+#and be sure to not include the median in your upper and lower data sets.
+
+# Define functions
+def median(size, values):
+    if size % 2 == 0:
+        median = (values[int(size/2)-1] + values[int(size/2)]) / 2
+    else:
+        median = float(values[int(size/2)])
+    return median
+
+# Set the data
+size = int(input())
+elements = list(map(int, input().split()))
+frequencies = list(map(int, input().split()))
+
+new_data = []
+for i in range(len(elements)):
+    for j in range(frequencies[i]):
+        new_data.append(elements[i])
+new_data = sorted(new_data)
+
+# Verify that the total data is even or odd
+size = int(len(new_data))
+if size % 2 == 0:
+    data_low = new_data[0:int(size/2)]
+    data_high = new_data[int(size/2):size]
+else:
+    data_low = new_data[0:int(size/2)]
+    data_high = new_data[int(size/2)+1:size]
+
+# Get the final result and print on the screen
+low = median(len(data_low), data_low)
+high = median(len(data_high), data_high)
+print(high - low)
