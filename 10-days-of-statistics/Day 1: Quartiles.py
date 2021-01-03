@@ -1,4 +1,7 @@
 # Day 1: Quartiles
+# Given an array, X of n integers, calculate the respective first quartile (Q1), second quartile (Q2), and third quartile (Q3).
+#It is guaranteed that Q1, Q2, and Q3 are integers.
+
 
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
